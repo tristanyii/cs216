@@ -110,6 +110,39 @@ We will:
 
 ---
 
+## Reproducibility Instructions
+
+1. **Python**  
+   Use Python 3.10 or newer (3.11+ recommended).
+
+2. **Virtual environment (recommended)**  
+   ```bash
+   python -m venv venv
+   source venv/bin/activate    # macOS / Linux
+   # venv\Scripts\activate     # Windows
+   ```
+
+3. **Install requirements**  
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Jupyter**  
+   Dependencies include Jupyter and `ipykernel`. From the repository root:
+   ```bash
+   jupyter notebook
+   ```
+   Open the notebooks under `notebooks/`.
+
+5. **Data paths**  
+   - Committed sample/processed data lives under `data/raw/` and `data/processed/`.  
+   - `notebooks/dataCleanup.ipynb` uses paths like `output.csv` and `kalshi_data_clean.csv`; set the notebook’s working directory to `data/raw` before running cleanup, or change the `read_csv` / `to_csv` paths to match `data/raw/output.csv` and `data/processed/kalshi_data_clean.csv`.
+
+6. **Re-fetching from Kalshi (optional)**  
+   `notebooks/dataExtraction.ipynb` expects API credentials and a private key file (`KalshiKey.txt`). That file is gitignored. To reproduce extraction end-to-end, add your own key file next to the notebook (or update paths) per [Kalshi’s API docs](https://docs.kalshi.com/getting_started/quick_start_market_data). Otherwise, use the checked-in CSVs under `data/` for analysis-only reproduction.
+
+---
+
 ## AI Disclosure
 
 - **Tool Used:** ChatGPT v5.2 (chatgpt.com)  
